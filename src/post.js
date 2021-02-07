@@ -18,7 +18,11 @@ module.exports.handle = async (event) => {
 
     var result = await dynamoDb.putItem(params).promise();
     return {
-      statusCode: 200
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin" : "*",
+        "Access-Control-Allow-Credentials" : true
+      },
     };
 
   } catch (error) {
