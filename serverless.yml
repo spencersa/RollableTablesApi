@@ -12,6 +12,10 @@ provider:
       Action:
         - execute-api:Invoke
         - lambda:InvokeFunction
+        - dynamodb:GetItem
+        - dynamodb:Query
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
       Resource: '*' 
 
 functions:
