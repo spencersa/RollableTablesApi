@@ -2,8 +2,10 @@
 let AWS = require("aws-sdk");
 
 module.exports.handle = async (event) => {
-  console.log(event);
   try {
+
+    let pathParameters = event.pathParameters;
+
     let dynamoDb = new AWS.DynamoDB.DocumentClient({
       service: new AWS.DynamoDB(
         {
@@ -16,7 +18,7 @@ module.exports.handle = async (event) => {
       TableName: "rollable-tables",
       IndexName: 'userId-index',
       KeyConditionExpression: 'userId = :userId',
-      ExpressionAttributeValues: { ':userId': event.userId }
+      ExpressionAttributeValues: { ':userId': pathParameters.userId }
     };
 
     var result = await dynamoDb.query(params).promise();
