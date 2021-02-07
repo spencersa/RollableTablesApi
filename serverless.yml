@@ -1,4 +1,4 @@
-service: myservice
+service: rollableTablesApi
 
 provider:
   name: aws
@@ -7,6 +7,12 @@ provider:
   region: us-east-2
   memorySize: 256
   lambdaHashingVersion: 20201221
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - execute-api:Invoke
+        - lambda:InvokeFunction
+      Resource: '*' 
 
 functions:
   post:

@@ -2,6 +2,7 @@
 let AWS = require("aws-sdk");
 
 module.exports.handle = async (event) => {
+  console.log(event);
   try {
     let dynamoDb = new AWS.DynamoDB.DocumentClient({
       service: new AWS.DynamoDB(
