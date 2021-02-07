@@ -1,0 +1,22 @@
+service: myservice
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  timeout: 30
+  region: us-east-2
+  memorySize: 256
+  lambdaHashingVersion: 20201221
+
+functions:
+  post:
+    handler: src/post.handle
+    name: rollable-tables-post  
+  get:
+    handler: src/get.handle
+    name: rollable-tables-get  
+
+frameworkVersion: '2'
+
+plugins:
+  - serverless-offline

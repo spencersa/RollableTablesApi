@@ -1,0 +1,35 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug POST",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}\\node_modules\\serverless\\bin\\serverless",
+            "args": [
+                "invoke",
+                "local",
+                "-f",
+                "post",
+                "-p",
+                "invoke-data-post.json"
+            ],
+            "autoAttachChildProcesses": true
+        },
+        {
+            "name": "Debug GET",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}\\node_modules\\serverless\\bin\\serverless",
+            "args": [
+                "invoke",
+                "local",
+                "-f",
+                "get",
+                "-p",
+                "invoke-data-get.json"
+            ],
+            "autoAttachChildProcesses": true
+        }
+    ]
+}
