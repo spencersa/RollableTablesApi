@@ -25,12 +25,16 @@ module.exports.handle = async (event) => {
 
     var items = result.Items;
 
+    items.forEach(x => {
+      x.data = JSON.parse(x.data);
+    })
+
     return {
       statusCode: 200,
       body: JSON.stringify(items),
       headers: {
-        "Access-Control-Allow-Origin" : "*",
-        "Access-Control-Allow-Credentials" : true
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true
       },
     };
 
