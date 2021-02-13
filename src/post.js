@@ -5,18 +5,20 @@ module.exports.handle = async (event) => {
   try {
     var dynamoDb = new AWS.DynamoDB();
 
+    let body = JSON.parse(event.body) 
+
     var params = {
       TableName: 'rollable-tables',
       Item: {
-        'userId': { S: event.userId },
-        'tableId': { S: event.tableId },
-        'tableName': { S: event.tableName },
-        'tags': { SS: event.tags },
-        'data': { S: JSON.stringify(event.data) },
+        'userId': { S: body.userId },
+        'tableId': { S: body.tableId },
+        'tableName': { S: body.tableName },
+        'tags': { SS: body.tags },
+        'data': { S: JSON.stringify(body.data) },
       }
     };
 
-    var result = await dynamoDb.putItem(params).promise();
+    await dynamoDb.putItem(params).promise();
     return {
       statusCode: 200,
       headers: {
