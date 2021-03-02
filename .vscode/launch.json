@@ -30,6 +30,21 @@
                 "invoke-data-get.json"
             ],
             "autoAttachChildProcesses": true
+        },
+        {
+            "name": "Debug SEED",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}\\node_modules\\serverless\\bin\\serverless",
+            "args": [
+                "invoke",
+                "local",
+                "-f",
+                "seed",
+                "-p",
+                "invoke-data-seed.json"
+            ],
+            "autoAttachChildProcesses": true
         }
     ]
 }

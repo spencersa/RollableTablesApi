@@ -16,6 +16,8 @@ provider:
         - dynamodb:Query
         - dynamodb:PutItem
         - dynamodb:UpdateItem
+        - dynamodb:Scan
+        - dynamodb:BatchWrite
       Resource: '*' 
 
 functions:
@@ -25,6 +27,9 @@ functions:
   get:
     handler: src/get.handle
     name: rollable-tables-get  
+  seed:
+    handler: src/seed.handle
+    name: rollable-tables-seed  
 
 frameworkVersion: '2'
 
