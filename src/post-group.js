@@ -4,17 +4,17 @@ const uuid = require('uuid');
 
 module.exports.handle = async (event) => {
     try {
-        let pathParameters = event.pathParameters;
+        let body = JSON.parse(event.body);
         var docClient = new AWS.DynamoDB.DocumentClient();
 
-        let groupId = pathParameters.groupId ? pathParameters.groupId : uuid.v1();
+        let groupId = body.groupId ? body.groupId : uuid.v1();
 
         var params = {
             TableName: 'rollable-tables-groups',
             Item: {
               'groupId': groupId,
-              'userId': pathParameters.userId,
-              'groupName': pathParameters.groupName
+              'userId': body.userId,
+              'groupName': body.groupName
             }
           };
 
