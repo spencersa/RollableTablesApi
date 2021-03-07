@@ -30,6 +30,18 @@ functions:
   seed:
     handler: src/seed.handle
     name: rollable-tables-seed  
+  post-group:
+    handler: src/post-group.handle
+    name: rollable-tables-post-group  
+  add-table-to-group:
+    handler: src/add-table-to-group.handle
+    name: rollable-tables-add-table-to-group
+  get-groups:
+    handler: src/get-groups.handle
+    name: rollable-tables-get-groups
+  get-tables-in-group:
+    handler: src/get-tables-in-group.handle
+    name: rollable-tables-get-tables-in-group
 
 frameworkVersion: '2'
 

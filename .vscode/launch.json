@@ -45,6 +45,66 @@
                 "invoke-data-seed.json"
             ],
             "autoAttachChildProcesses": true
+        },
+        {
+            "name": "Debug POST GROUP",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}\\node_modules\\serverless\\bin\\serverless",
+            "args": [
+                "invoke",
+                "local",
+                "-f",
+                "post-group",
+                "-p",
+                "invoke-data-post-group.json"
+            ],
+            "autoAttachChildProcesses": true
+        },
+        {
+            "name": "Debug ADD TABLE TO GROUP",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}\\node_modules\\serverless\\bin\\serverless",
+            "args": [
+                "invoke",
+                "local",
+                "-f",
+                "add-table-to-group",
+                "-p",
+                "invoke-add-table-to-group.json"
+            ],
+            "autoAttachChildProcesses": true
+        },
+        {
+            "name": "Debug GET GROUPS",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}\\node_modules\\serverless\\bin\\serverless",
+            "args": [
+                "invoke",
+                "local",
+                "-f",
+                "get-groups",
+                "-p",
+                "invoke-get-groups.json"
+            ],
+            "autoAttachChildProcesses": true
+        },
+        {
+            "name": "Debug GET TABLES IN GROUP",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}\\node_modules\\serverless\\bin\\serverless",
+            "args": [
+                "invoke",
+                "local",
+                "-f",
+                "get-tables-in-group",
+                "-p",
+                "invoke-get-tables-in-group.json"
+            ],
+            "autoAttachChildProcesses": true
         }
     ]
 }
